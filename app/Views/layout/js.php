@@ -1,8 +1,10 @@
  <!-- Jquery JS-->
  <script src="<?= base_url() ?>/vendor/jquery-3.2.1.min.js"></script>
+
  <!-- Bootstrap JS-->
  <script src="<?= base_url() ?>/vendor/bootstrap-4.1/popper.min.js"></script>
  <script src="<?= base_url() ?>/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+ 
  <!-- Vendor JS     -->
  <script src="<?= base_url() ?>/vendor/slick/slick.min.js"></script>
  <script src="<?= base_url() ?>/vendor/wow/wow.min.js"></script>

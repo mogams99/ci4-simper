@@ -100,7 +100,7 @@
                     <!-- DATA TABLE-->
                     <div class="report table-responsive">
                         <table id="dataTableInProduct"
-                            class="table table-bordered table-color-bg text-center costum-rounded w-100"
+                            class="table table-borderless table-color-bg text-center costum-rounded w-100"
                             style="font-size: 10pt;">
                             <thead>
                                 <th style="min-width: 120px;">Kode Transaksi</th>
@@ -149,7 +149,8 @@
                 <div class="col-md-12 col-lg-12">
                     <!-- DATA TABLE-->
                     <div class="report table-responsive">
-                        <table id="dataTableReportView" class="table table-bordered table-color-bg costum-rounded w-100"
+                        <table id="dataTableReportView"
+                            class="table table-borderless table-color-bg text-center costum-rounded w-100"
                             style="font-size: 10pt;">
                             <thead>
                                 <th style="min-width: 120px;">Kode Transaksi</th>
@@ -208,12 +209,20 @@
         let elemetend = document.getElementById("DATE_END");
         let datestart = elementstart.value;
         let dateend = elemetend.value;
-        window.datestartreport = datestart;
-        window.dateendreport = dateend;
-        document.location.href = `/laporanbarangmasuk_spv/${datestart}/${dateend}`;
+        if (datestart == "" || dateend == "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Peringatan!',
+                text: 'Kolom Tanggal Periode Harus Diisi!',
+            });
+        } else {
+            window.datestartreport = datestart;
+            window.dateendreport = dateend;
+            document.location.href = `/laporanbarangmasuk_spv/${datestart}/${dateend}`;
+        }
     }
 
-     $(document).ready(function () {
+    $(document).ready(function () {
         var table4 = $('#dataTableInProduct').DataTable({
             dom: 'Bfrtip',
             buttons: [{
@@ -221,35 +230,36 @@
                 text: 'Cetak',
                 title: '',
                 customize: function (win) {
-                    // let datestart = window.datestartreport;
-                    // let dateend = window.dateendreport;
                     $(win.document.body).css('font-size', '8pt');
 
                     $(win.document.body).find('table')
                         .addClass('compact')
                         .css('font-size', 'inherit');
 
-                    $(win.document.body).find('table').find('tbody').find('tr').last().find(
-                        'td:not(:nth-last-child(1))').addClass('hide-col');
+                    $(win.document.body).find('table').addClass('table-bordered');
                     $(win.document.body).find('table').find('thead').find('tr').last().find(
                         'th:not(.sorting_disabled)').css('padding-right', '10px');
                     $(win.document.body).find('table').find('tbody').find('tr').last().find(
-                        'td:first').removeClass('hide-col').addClass('hide-col-2');
+                        'td:not(:nth-last-child(1))').addClass('hide-col').css(
+                        'font-weight', 'bolder');
+                    $(win.document.body).find('table').find('tbody').find('tr').last().find(
+                        'td:first').removeClass('hide-col').addClass('hide-col-2').css(
+                        'font-weight', 'bolder');
 
                     $(win.document.body).append(
-                        '<div class="row m-t-30 m-b-50"><div class="col" align="center"><div>Ridwan Irlanto</div></div></div><div class="row"><div class="col" align="center"><div><strong>(Supervisor Logistik)</strong></div></div></div>'
-                        ); //after the table
-                   <?php if($date_harian == null) : ?>
-                    $(win.document.body).prepend(
-                        '<div class="row m-t-15 m-b-30"><div class="col" align="center"><h4 style="color: #666;">Laporan Pemasukan Departemen Logistik Periode Tanggal <?= date('d-m-Y', strtotime($date_start)) ?> s/d <?= date('d-m-Y', strtotime($date_end)) ?></h4></div></div>'
+                        '<div class="row m-t-30 m-b-50"><div class="col" align="center"><h6 style="color: #666;">Ridwan Irlanto</h6></div></div><div class="row"><div class="col" align="center"><div><strong><h6 style="color: #666;">(Supervisor Logistik)</h6></strong></div></div></div>'
+                    ); //after the table
+                    <?php if ($date_harian == null) : ?>
+                        $(win.document.body).prepend(
+                            '<div class="row m-t-15 m-b-30"><div class="col" align="center"><h4 style="color: #666;">Laporan Pemasukan Departemen Logistik Periode Tanggal <?= date('d - m - Y ', strtotime($date_start)) ?> s/d <?= date('d - m - Y ', strtotime($date_end)) ?></h4></div></div>'
                         ); //before the table
                     <?php else : ?>
-                    $(win.document.body).prepend(
-                        '<div class="row m-t-15 m-b-30"><div class="col" align="center"><h4 style="color: #666;">Laporan Pemasukan Departemen Logistik Harian Tanggal <?= date('d-m-Y', strtotime($date_harian)); ?></h4></div></div>'
+                        $(win.document.body).prepend(
+                            '<div class="row m-t-15 m-b-30"><div class="col" align="center"><h4 style="color: #666;">Laporan Pemasukan Departemen Logistik Harian Tanggal <?= date('d - m - Y ', strtotime($date_harian)); ?></h4></div></div>'
                         ); //before the table
                     <?php endif; ?>
                 }
-            }, ],
+            }],
             "pagingType": "simple", // Merubah format pagination 
             "bFilter": false, // Menyebunyikan searchbar bawaan
             "ordering": false, // Menonaktifkan fungsi sorting atau ordering

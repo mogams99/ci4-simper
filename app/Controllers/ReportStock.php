@@ -8,18 +8,24 @@ class ReportStock extends BaseController
 {
     public function index($idbarang = null)
     {
-        $databarang = null;
+        $databarang = $this->ProdukModel->getProduk();
+        $selecteddatabarang = null;
+        $selectednamabarang = null;
         if ($idbarang == null) {
-            $databarang =  $this->ProdukModel->getProduk();
             $idbarang = "all";
+            $selecteddatabarang = $databarang;
         } else {
-            $databarang = $this->ProdukModel->getProdukDetail($idbarang);
+            $selecteddatabarang = $this->ProdukModel->getProdukDetail($idbarang);
+            $selectednamabarang = $selecteddatabarang[0]['NAMA_BARANG'];
         }
         $data = [
             'title' => 'Laporan Sisa Stok - Supervisor',
             'product' => $databarang,
-            'selected_barang' => $idbarang
+            'selected_barang' => $idbarang,
+            'selected_data_barang' => $selecteddatabarang,
+            'selected_nama_barang' => $selectednamabarang
         ];
+
 
         return view('supervisor/stock-product/main', $data);
     }

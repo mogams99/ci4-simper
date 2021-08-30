@@ -27,10 +27,10 @@
 <link href="<?= base_url() ?>/vendor/slick/slick.css" rel="stylesheet" media="all">
 <link href="<?= base_url() ?>/vendor/select2/select2.min.css" rel="stylesheet" media="all">
 <link href="<?= base_url() ?>/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+<!-- Extended CSS -->
 <link href="<?= base_url() ?>/css/sweetalert2.css" rel="stylesheet" >
-
 <link href="<?= base_url() ?>/css/datatables.min.css" rel="stylesheet" type="text/css"/>
-
 <link href="<?= base_url() ?>/css/select2.min.css" rel="stylesheet" />
 
 <!-- Main CSS-->

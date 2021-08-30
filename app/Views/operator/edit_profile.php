@@ -46,19 +46,19 @@
                     <input type="hidden" name="ID_USER" id="ID_USER" value="<?= (isset($pengguna['ID_USER'])) ? $pengguna['ID_USER'] : '' ?>">
                         <div class="container">
                             <div class="row">
-                                <div class="col-lg-5 col-md-5">
+                                <div class="col-lg-5 col-md-12">
                                     <div class="form-group mb-3">
                                         <label for="NAMA" class="form-control-label pr-3">Nama Lengkap</label>
                                         <input type="text" class="form-control w-100 costum-rounded" name="NAMA" id="NAMA" value="<?= (isset($pengguna['NAMA'])) ? $pengguna['NAMA'] : '' ?>">
                                     </div>
                                 </div>
-                                <div class="col-lg-3 col-md-3">
+                                <div class="col-lg-3 col-md-12">
                                     <div class="form-group mb-3">
                                         <label for="PHONE" class="form-control-label pr-3">No. Handphone</label>
                                         <input type="text" class="form-control w-100 costum-rounded" name="PHONE" id="PHONE" value="<?= (isset($pengguna['PHONE'])) ? $pengguna['PHONE'] : '' ?>">
                                     </div>
                                 </div>
-                                <div class="col-lg-4 col-md-4">
+                                <div class="col-lg-4 col-md-12">
                                     <div class="form-group mb-3">
                                         <label for="EMAIL" class="form-control-label pr-3">Email</label>
                                         <input type="text" class="form-control w-100 costum-rounded" name="EMAIL" id="EMAIL" value="<?= (isset($pengguna['EMAIL'])) ? $pengguna['EMAIL'] : '' ?>">
@@ -66,18 +66,19 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-lg-4 col-md-12">
                                     <div class="form-group mb-3">
                                         <label for="USERNAME" class="form-control-label pr-3">Username</label>
                                         <input type="text" class="form-control w-100 costum-rounded" name="USERNAME" id="USERNAME" value="<?= (isset($pengguna['USERNAME'])) ? $pengguna['USERNAME'] : '' ?>">
                                     </div>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-lg-4 col-md-12">
                                     <div class="form-group mb-3">
                                         <label for="PASSWORD" class="form-control-label pr-3">Password Baru</label>
                                         <input type="password" class="form-control w-100 costum-rounded" name="PASSWORD" id="PASSWORD">
                                     </div>
-                                </div> <div class="col-4">
+                                </div> 
+                                <div class="col-lg-4 col-md-12">
                                     <div class="form-group mb-3">
                                         <label for="PASSWORD_CONF" class="form-control-label pr-3">Konfirmasi Password</label>
                                         <input type="password" class="form-control w-100 costum-rounded" name="PASSWORD_CONF" id="PASSWORD_CONF">

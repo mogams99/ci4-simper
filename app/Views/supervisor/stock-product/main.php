@@ -40,7 +40,7 @@
                                 <div class="col-lg-4 col-md-4">
                                     <div class="form-group mb-3">
                                         <label for="ID_BARANG" class="form-control-label pr-3">Kode Barang</label>
-                                        <select name="ID_BARANG" id="ID_BARANG"
+                                        <select name="ID_BARANG" id="ID_BARANG" onchange="getDetailProduk()"
                                             class="js-select2-extend form-control">
                                             <option value="" disabled selected>Pilih Opsi</option>
                                             <option value="all" <?= $selected_barang=="all" ? 'selected' : '' ?>>Semua
@@ -56,7 +56,7 @@
                                 <div class="col-lg-8 col-md-8">
                                     <div class="form-group">
                                         <label for="" class="form-control-label pr-3">Nama Barang</label>
-                                        <input type="text" class="form-control w-100 costum-rounded" id="NAMA_BARANG"
+                                        <input type="text" class="form-control w-100 costum-rounded" id="NAMA_BARANG" value="<?= (isset($selected_nama_barang)) ? $selected_nama_barang: '' ?>"
                                             readonly>
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@
                 <div class="col-md-12 col-lg-12">
                     <!-- DATA TABLE-->
                     <div class="report table-responsive">
-                        <table id="dataTableStock" class="table table-bordered table-color-bg text-center costum-rounded"
+                        <table id="dataTableStock" class="table table-borderless table-color-bg text-center costum-rounded w-100"
                             style="font-size: 10pt;">
                             <thead>
                                 <th style="min-width: 100px;">Kode Barang</th>
@@ -83,14 +83,14 @@
                                 <th>Lokasi</th>
                                 <th style="min-width: 100px;">Stok Tersedia</th>
                                 <th style="min-width: 100px;">Minimal Stok</th>
-                                <th style="min-width: 100px;">Harga Satuan</th>
+                                <th style="min-width: 100px;">Harga</th>
                                 <th>Satuan</th>
                                 <th>Deskripsi</th>
                                 <th style="min-width: 100px;">Harga Total</th>
                             </thead>
                             <tbody id="tbody">
                                 <?php $total = 0; ?>
-                                <?php foreach ($product as $item ) :?>
+                                <?php foreach ($selected_data_barang as $item ) :?>
                                 <tr>
                                     <td><?= $item['ID_BARANG']; ?></td>
                                     <td><?= $item['NAMA_BARANG']; ?></td>
@@ -126,7 +126,7 @@
             <div class="row d-md-none d-block">
                 <div class="col-md-12 col-lg-12">
                     <div class="report table-responsive">
-                        <table id="dataTableReportView" class="table table-bordered table-color-bg costum-rounded w-100"
+                        <table id="dataTableReportView" class="table table-bordered table-color-bg text-center costum-rounded w-100"
                             style="font-size: 10pt;">
                             <thead>
                                 <th style="min-width: 100px;">Kode Barang</th>
@@ -135,13 +135,13 @@
                                 <th>Lokasi</th>
                                 <th style="min-width: 100px;">Stok Tersedia</th>
                                 <th style="min-width: 100px;">Minimal Stok</th>
-                                <th style="min-width: 100px;">Harga Satuan</th>
+                                <th style="min-width: 100px;">Harga</th>
                                 <th>Satuan</th>
                                 <th>Deskripsi</th>
                                 <th style="min-width: 100px;">Harga Total</th>
                             </thead>
                             <tbody id="tbody">
-                                <?php foreach ($product as $item ) :?>
+                                <?php foreach ($selected_data_barang as $item ) :?>
                                 <tr>
                                     <td><?= $item['ID_BARANG']; ?></td>
                                     <td><?= $item['NAMA_BARANG']; ?></td>
@@ -149,10 +149,10 @@
                                     <td><?= $item['BLOK']; ?></td>
                                     <td><?= $item['STOK']; ?></td>
                                     <td><?= $item['MINIMAL_BARANG']; ?></td>
-                                    <td><?= $item['HARGA_BARANG']; ?></td>
+                                    <td><?= format_rupiah($item['HARGA_BARANG']); ?></td>
                                     <td><?= $item['NOTASI']; ?></td>
                                     <td><?= $item['KETERANGAN_BARANG']; ?></td>
-                                    <td><?= (int)$item['HARGA_BARANG']*(int)$item['STOK']; ?></td>
+                                    <td><?= format_rupiah((int)$item['HARGA_BARANG']*(int)$item['STOK']); ?></td>
                                 </tr>
                                 <?php endforeach;?>
                                 <tr>
@@ -221,12 +221,13 @@
                             .addClass( 'compact' )
                             .css( 'font-size', 'inherit' );
 
-                        $(win.document.body).find('table').find('tbody').find('tr').last().find('td:not(:nth-last-child(1))').addClass('hide-col');
+                        $(win.document.body).find('table').addClass('table-bordered');
                         $(win.document.body).find('table').find('thead').find('tr').last().find('th:not(.sorting_disabled)').css('padding-right', '10px');
-                        $(win.document.body).find('table').find('tbody').find('tr').last().find('td:first').removeClass('hide-col').addClass('hide-col-2');
+                        $(win.document.body).find('table').find('tbody').find('tr').last().find('td:not(:nth-last-child(1))').addClass('hide-col').css('font-weight', 'bolder');
+                        $(win.document.body).find('table').find('tbody').find('tr').last().find('td:first').removeClass('hide-col').addClass('hide-col-2').css('font-weight', 'bolder');
                         
-                        $(win.document.body).append('<div class="row m-t-30 m-b-50"><div class="col" align="center"><div>Ridwan Irlanto</div></div></div><div class="row"><div class="col" align="center"><div><strong>(Supervisor Logistik)</strong></div></div></div>'); //after the table
-                        $(win.document.body).prepend('<div class="row m-t-15 m-b-30"><div class="col" align="center"><h3 style="color: #666;">Laporan Persedian Departemen Logistik <?= date("d-m-Y") ?></h3></div></div>'); //before the table
+                        $(win.document.body).append('<div class="row m-t-30 m-b-50"><div class="col" align="center"><h6 style="color: #666;">Ridwan Irlanto</h6></div></div><div class="row"><div class="col" align="center"><div><strong><h6 style="color: #666;">(Supervisor Logistik)</h6></strong></div></div></div>'); //after the table
+                        $(win.document.body).prepend('<div class="row m-t-15 m-b-30"><div class="col" align="center"><h4 style="color: #666;">Laporan Persedian Departemen Logistik <?= date("d-m-Y") ?></h4></div></div>'); //before the table
                     }
                 },
             ],

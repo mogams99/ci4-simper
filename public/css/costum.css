@@ -90,6 +90,22 @@ li#dataTableStock_previous.paginate_button.page-item.previous.disabled {
   display: none;
 }
 
+li#dataTableInProduct_next.paginate_button.page-item.next.disabled {
+  display: none;
+}
+
+li#dataTableInProduct_previous.paginate_button.page-item.previous.disabled {
+  display: none;
+}
+
+li#dataTableOutProduct_next.paginate_button.page-item.next.disabled {
+  display: none;
+}
+
+li#dataTableOutProduct_previous.paginate_button.page-item.previous.disabled {
+  display: none;
+}
+
 li#dataTableReportView_next.paginate_button.page-item.next.disabled {
   display: none;
 }

@@ -39,7 +39,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4 ml-auto">
                     <!-- <button class="btn btn-success btn-md" type="submit" href="/login">Tambah Barang</button> -->
-                    <a class="btn btn-success btn-block costum-rounded" type="submit" href="/tambah_vendormaster_op">Tambah Satuan</a>
+                    <a class="btn btn-success btn-block costum-rounded" type="submit" href="/tambah_vendormaster_op">Tambah Vendor</a>
                 </div>
             </div>
             <div class="row">
