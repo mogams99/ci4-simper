@@ -7,13 +7,13 @@
             <div class="login-wrap">
                 <div class="login-content costum-rounded">
                     <div class="login-logo">
-                        <a href="#">
-                            <h1>SIMPER <span class="no-bold">DSI</span></h1>
+                        <a href="<?= base_url('masuk') ?>">
+                            <h1><span class="no-bold">SIM</span>PER</h1>
                         </a>
                     </div>
                     <div class="login-form">
                         <?php if (!empty(session()->getFlashdata('error'))) : ?>
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                 <?php echo session()->getFlashdata('error'); ?>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>

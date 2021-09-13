@@ -2,9 +2,8 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar2">
             <div class="logo">
-                <a href="#">
-                    <h1 style="color: white; padding-left: 20px;">SIMPER <span class="no-bold">DSI</span></h1>
-                    <!-- <img src="images/icon/logo-white.png" alt="Cool Admin" /> -->
+                <a href="<?= base_url('beranda_op') ?>">
+                    <h1 style="color: white; padding-left: 55px;"><span class="no-bold">SIM</span>PER</h1>
                 </a>
             </div>
             <div class="menu-sidebar2__content js-scrollbar1">
@@ -119,7 +118,7 @@
                                     <a href="<?= base_url('satuan_op') ?>">
                                         <i class="fas fa-filter"></i>Satuan</a>
                                 </li>
-                                <li class="<?php if ($title == 'Master Vendor - Operator' || $title == 'Tambah Vendor - Operator' || $title == 'Edit Kategori - Operator') {
+                                <li class="<?php if ($title == 'Master Vendor - Operator' || $title == 'Tambah Vendor - Operator' || $title == 'Edit Vendor - Operator') {
                                     echo 'active';
                                 }?>">
                                     <a href="<?= base_url('vendor_op') ?>">

@@ -15,7 +15,7 @@
                                 <li class="list-inline-item seprate">
                                     <span>/</span>
                                 </li>   
-                                <li class="list-inline-item">Riwayat Aksi Operator</li>
+                                <li class="list-inline-item">Riwayat Aksi</li>
                             </ul>
                         </div>
                     </div>
@@ -52,13 +52,13 @@
                                 <th>Riwayat Aksi</th>
                             </thead>
                             <tbody>
-                                <?php foreach ($datalog as $log): ?>
+                                <?php foreach ($datalog as $key => $log ): ?>
                                     <?php $date = strtotime($log['CREATED_LOG']);
                                     $tgl = date('d-m-Y', $date);
                                     $jam = date('H:i:s', $date);
                                 ?>
                                 <tr>
-                                    <td><?= $log['ID_LOG']; ?></td>
+                                    <td><?= $key+1; ?></td>
                                     <td><?= $tgl; ?></td>
                                     <td><?= $jam; ?></td>
                                     <td><?= $log['ID_TRANSAKSI']; ?></td>

@@ -61,6 +61,7 @@ class Product extends BaseController
     {
         $validation =  \Config\Services::validation();
         $validation->setRules([
+            'ID_BARANG' => 'required',
             'NAMA_BARANG' => 'required',
             'MINIMAL_BARANG' => 'required|alpha_numeric|is_natural_no_zero',
             'BLOK' => 'required',

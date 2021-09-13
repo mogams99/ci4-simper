@@ -103,7 +103,7 @@ class ProductIn extends BaseController
             $logdata = [
                 'id_user' => $this->request->getVar('ID_USER'),
                 'id_transaksi' => $this->request->getVar('ID_TRANSAKSI'),
-                'keterangan_log' => 'Insert Barang Masuk'
+                'keterangan_log' => 'Melakukan proses input barang masuk'
             ];
             $this->logModel->insert($logdata);
         }
@@ -138,7 +138,7 @@ class ProductIn extends BaseController
             $logdata = [
                 'id_user' => $this->request->getVar('ID_USER'),
                 'id_transaksi' => $this->request->getVar('ID_TRANSAKSI'),
-                'keterangan_log' => 'Update Transaksi Barang Masuk'
+                'keterangan_log' => 'Melakukan proses edit vendor barang masuk'
             ];
             $this->logModel->insert($logdata);
             return 'editBarangMasuk';

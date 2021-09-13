@@ -20,8 +20,12 @@
                                 </li>
                                 <li class="list-inline-item seprate">
                                     <span>/</span>
-                                </li>   
-                                <li class="list-inline-item">Tambah Satuan</li>
+                                </li>
+                                <?php if ($formHeader=="Edit Satuan") : ?>
+                                    <li class="list-inline-item">Edit</li>
+                                <?php else : ?>
+                                    <li class="list-inline-item">Tambah</li>
+                                <?php endif; ?>
                             </ul>
                         </div>
                     </div>

@@ -69,7 +69,7 @@
                                         <div class="col-lg-6 col-md-6">
                                             <div class="form-group mb-3">
                                                 <label for="" class="form-control-label pr-3">Pilih Tanggal</label>
-                                                <input type="date" class="form-control w-100 costum-rounded"
+                                                <input type="date" class="form-control w-100 costum-rounded date-format"
                                                     id="DATE_START" name="DATE_START"
                                                     value="<?= (isset($datestart)) ? $datestart : '' ; ?>">
                                             </div>
@@ -77,7 +77,7 @@
                                         <div class="col-lg-6 col-md-6">
                                             <div class="form-group mb-3">
                                                 <label for="" class="form-control-label pr-3">Sampai Tanggal</label>
-                                                <input type="date" class="form-control w-100 costum-rounded"
+                                                <input type="date" class="form-control w-100 costum-rounded date-format"
                                                     id="DATE_END" name="DATE_END"
                                                     value="<?= (isset($dateend)) ? $dateend : '' ; ?>">
                                             </div>
@@ -242,6 +242,7 @@
                     $(win.document.body).find('table').find('tbody').find('tr').last().find(
                         'td:not(:nth-last-child(1))').addClass('hide-col').css(
                         'font-weight', 'bolder');
+                    $(win.document.body).find('table').find('tbody').find('tr').last().find('td:nth-last-child(1)').css('font-weight', 'bolder');
                     $(win.document.body).find('table').find('tbody').find('tr').last().find(
                         'td:first').removeClass('hide-col').addClass('hide-col-2').css(
                         'font-weight', 'bolder');

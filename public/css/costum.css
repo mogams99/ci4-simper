@@ -181,8 +181,14 @@ a.logout-nav:hover {
   color: white;
 }
 
+.overflow-hidden{
+  overflow: hidden;
+}
+
 .costum-nav {
-  height: fit-content;
+  height: 100vh;
+  overflow-x: hidden;
+  z-index: 1200;
 }
 
 .sett-toolbar {

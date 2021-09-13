@@ -2,9 +2,8 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar2">
             <div class="logo">
-                <a href="#">
-                    <h1 style="color: white; padding-left: 20px;">SIMPER <span class="no-bold">DSI</span></h1>
-                    <!-- <img src="images/icon/logo-white.png" alt="Cool Admin" /> -->
+                <a href="<?= base_url('beranda_op') ?>">
+                    <h1 style="color: white; padding-left: 55px;"><span class="no-bold">SIM</span>PER</h1>
                 </a>
             </div>
             <div class="menu-sidebar2__content js-scrollbar1">
@@ -12,7 +11,7 @@
                     <div class="image img-cir img-120">
                         <img src="<?= base_url() ?>/images/icon/img_avatar.jpg"/>
                     </div>
-                    <h4 class="name"><?= $_SESSION["NAMA"]; ?></h4>
+                    <h4 class="name text-center"><?= $_SESSION["NAMA"]; ?></h4>
                     <a href="<?= base_url('ubahprofil_spv') ?>" class="<?php if ($title == 'Ubah Profil - Supervisor') {echo 'text-primary'; } ?>">Ubah Profil</a>
                 </div>
                 <nav class="navbar-sidebar2">

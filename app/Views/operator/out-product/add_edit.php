@@ -20,8 +20,12 @@
                                 </li>
                                 <li class="list-inline-item seprate">
                                     <span>/</span>
-                                </li>   
-                                <li class="list-inline-item">Tambah</li>
+                                </li>
+                                <?php if ($formHeader=="Edit Barang Keluar") : ?>
+                                    <li class="list-inline-item">Edit</li>
+                                <?php else : ?>
+                                    <li class="list-inline-item">Tambah</li>
+                                <?php endif; ?>
                             </ul>
                         </div>
                     </div>
@@ -36,7 +40,7 @@
         <div class="container-fluid">
             <div class="card costum-rounded">
                 <div class="card-header">
-                    Form <strong>Tambah Barang Keluar</strong>
+                    Form <strong><?= $formHeader; ?></strong>
                 </div>
                 <div class="card-body card-block">
                     <form action="<?= $action ?>" method="post" enctype="multipart/form-data" class="form-inline" id="form-master">
@@ -97,7 +101,7 @@
                                 <div class="col-lg-3 col-md-3">
                                     <div class="form-group mb-3">
                                         <label for="HARGA" class="pr-2 form-control-label">Harga</label>
-                                        <input type="text" name="HARGA" id="HARGA" class="form-control w-100 costum-rounded" value="<?= (isset($transac['HARGA_BARANG'])) ? $transac['HARGA_BARANG'] : ''; ?>" readonly>
+                                        <input type="text" name="HARGA" id="HARGA" class="form-control w-100 costum-rounded" value="<?= (isset($transac['HARGA_BARANG'])) ? format_rupiah($transac['HARGA_BARANG']) : ''; ?>" readonly>
                                     </div>
                                 </div>
                                 <div class="col-lg-3 col-md-3">
@@ -126,7 +130,7 @@
                             <div class="row">
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group mb-3">
-                                        <label for="KETERANGAN_TRANSAKSI" class="pr-2 form-control-label">Keterangan Barang Keluar</label>
+                                        <label for="KETERANGAN_TRANSAKSI" class="pr-2 form-control-label">Keterangan Pengajuan</label>
                                         <input type="text" name="KETERANGAN_TRANSAKSI" id="KETERANGAN_TRANSAKSI" class="form-control w-100 costum-rounded" value="<?= (isset($transac['KETERANGAN_TRANSAKSI'])) ? $transac['KETERANGAN_TRANSAKSI'] : ''; ?>">
                                     </div>
                                 </div>

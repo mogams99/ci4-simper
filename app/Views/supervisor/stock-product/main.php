@@ -165,7 +165,7 @@
                                     <td class="hide-col"></td>
                                     <td class="hide-col"></td>
                                     <td></td>
-                                    <td class="hide-col"><strong><?= format_rupiah($total); ?></strong></td>
+                                    <td class="hide-col font-weight-bolder"><strong><?= format_rupiah($total); ?></strong></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -209,6 +209,7 @@
             dom: 'Bfrtip',
             buttons: [
                 {
+                    // autoPrint: false,
                     extend: 'print',
                     text: 'Cetak',  
                     title: '',
@@ -224,10 +225,11 @@
                         $(win.document.body).find('table').addClass('table-bordered');
                         $(win.document.body).find('table').find('thead').find('tr').last().find('th:not(.sorting_disabled)').css('padding-right', '10px');
                         $(win.document.body).find('table').find('tbody').find('tr').last().find('td:not(:nth-last-child(1))').addClass('hide-col').css('font-weight', 'bolder');
+                        $(win.document.body).find('table').find('tbody').find('tr').last().find('td:nth-last-child(1)').css('font-weight', 'bolder');
                         $(win.document.body).find('table').find('tbody').find('tr').last().find('td:first').removeClass('hide-col').addClass('hide-col-2').css('font-weight', 'bolder');
                         
                         $(win.document.body).append('<div class="row m-t-30 m-b-50"><div class="col" align="center"><h6 style="color: #666;">Ridwan Irlanto</h6></div></div><div class="row"><div class="col" align="center"><div><strong><h6 style="color: #666;">(Supervisor Logistik)</h6></strong></div></div></div>'); //after the table
-                        $(win.document.body).prepend('<div class="row m-t-15 m-b-30"><div class="col" align="center"><h4 style="color: #666;">Laporan Persedian Departemen Logistik <?= date("d-m-Y") ?></h4></div></div>'); //before the table
+                        $(win.document.body).prepend('<div class="row m-t-15 m-b-30"><div class="col" align="center"><h4 style="color: #666;">Laporan Persedian Departemen Logistik Tanggal <?= date("d-m-Y") ?></h4></div></div>'); //before the table
                     }
                 },
             ],

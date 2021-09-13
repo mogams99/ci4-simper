@@ -62,7 +62,7 @@
                                     <th>Minimal Stok</th>
                                     <th>Satuan</th>
                                     <th>Harga Satuan</th>
-                                    <th>Keterangan</th>
+                                    <th>Deskripsi Barang</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>

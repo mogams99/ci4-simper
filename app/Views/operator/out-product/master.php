@@ -53,12 +53,12 @@
                                     <th>Kode Transaksi</th>
                                     <th>Tanggal Keluar</th>
                                     <th>Kode Barang</th>
-                                    <th>Nama</th>
+                                    <th>Nama Barang</th>
                                     <th>Stok Keluar</th>
                                     <th>Satuan</th>
                                     <th>Harga Total</th>
                                     <!-- <th>Tipe</th> -->
-                                    <th>Keterangan</th>
+                                    <th>Keterangan Pengajuan</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -66,7 +66,7 @@
                                 <?php foreach($transac as $tra) : ?>
                                 <tr>
                                     <td><?= $tra['ID_TRANSAKSI'] ?></td>
-                                    <td><?= $tra['DATE_OUT'] ?></td>
+                                    <td><?= date('d-m-Y', strtotime($tra['DATE_OUT'])); ?></td>
                                     <td><?= $tra['ID_BARANG'] ?></td>
                                     <td><?= $tra['NAMA_BARANG'] ?></td>
                                     <td><?= $tra['JUMLAH_BARANG'] ?></td>

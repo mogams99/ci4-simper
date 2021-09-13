@@ -38,7 +38,7 @@
                             class="form-control universal-rounded-right">
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-5 ml-auto">
+                <div class="col-lg-4 col-md-4 ml-auto">
                     <!-- <button class="btn btn-success btn-md" type="submit" href="/login">Tambah Barang</button> -->
                     <a class="btn btn-success btn-block costum-rounded" type="submit" href="/tambah_brgmasuk_op">Tambah
                         Barang Masuk</a>

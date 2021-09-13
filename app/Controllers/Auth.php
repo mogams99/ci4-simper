@@ -12,7 +12,7 @@ class Auth extends BaseController
         helper(['form']);
 
         $data = [
-            'title' => 'Login - SIMPER DSI',
+            'title' => 'Login - SIMPER',
             'action' => base_url('proses_masuk')
         ];
         
@@ -24,7 +24,7 @@ class Auth extends BaseController
         helper(['form']);
 
         $data = [
-            'title' => 'Daftar - SIMPER DSI',
+            'title' => 'Daftar - SIMPER',
             'action' => base_url('proses_regis')
         ];
 
@@ -35,7 +35,7 @@ class Auth extends BaseController
     {   
         if (!$this->validate([
             'NAMA' => [
-                'rules' => 'required|min_length[4]|max_length[15]|is_unique[pengguna.NAMA]',
+                'rules' => 'required|min_length[4]|max_length[30]|is_unique[pengguna.NAMA]',
                 'errors' => [
                     'required' => 'Nama Lengkap Harus Diisi',
                     'min_length' => 'Nama Lengkap Minimal Harus Berjumlah 4 Karakter',
@@ -103,7 +103,7 @@ class Auth extends BaseController
         ]);
 
         if($add){
-            session()->setFlashdata('Msg', 'Akun anda berhasil mendaftar!');
+            session()->setFlashdata('MsgReg', 'Akun anda berhasil mendaftar!');
             return redirect()->to('/masuk');
         }
     }
@@ -138,11 +138,11 @@ class Auth extends BaseController
                     return redirect()->to('/keluar');
                 }
             } else {
-                $session->setFlashdata('Msg', 'Password anda salah');
+                $session->setFlashdata('Msg', 'Username atau Password anda salah!');
                 return redirect()->to('/masuk');
             }
         } else {
-            $session->setFlashdata('Msg', 'Username atau Password salah!');
+            $session->setFlashdata('Msg', 'Username atau Password harus diisi!');
             return redirect()->to('/masuk');
         }
 

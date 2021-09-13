@@ -1567,6 +1567,12 @@
         menu[i].classList.remove("show-dropdown");
       }
       sub_menu_is_showed = -1;
+      // Kondisi ketika nav/sidebar aktif
+      if($("show-sidebar").length > 0){
+        $("body,html").removeClass('overflow-hidden');
+      }else{
+        $("body,html").addClass('overflow-hidden');
+      }
       right_sidebar.toggleClass("show-sidebar");
     });
 
@@ -1576,7 +1582,7 @@
 
     $("body,html").on("click", function () {
       right_sidebar.removeClass("show-sidebar");
-
+      $("body,html").removeClass('overflow-hidden');
     });
  
 

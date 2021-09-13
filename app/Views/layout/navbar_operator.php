@@ -6,9 +6,8 @@
             <div class="container-fluid">
                 <div class="header-wrap2">
                     <div class="logo d-block d-lg-none">
-                        <a href="#">
-                            <h1 style="color: white; padding-left: 20px;">SIMPER <span class="no-bold">DSI</span></h1>
-                            <!-- <img src="images/icon/logo-white.png" alt="CoolAdmin" /> -->
+                        <a href="<?= base_url('beranda_op') ?>">
+                           <h1 style="color: white; padding-left: 30px;"><span class="no-bold">SIM</span>PER</h1>
                         </a>
                     </div>
                     <div class="header-button2">
@@ -27,12 +26,7 @@
     </header>
 
     <!-- Tampilan mobile -->
-    <aside class="menu-sidebar2 js-right-sidebar d-block d-lg-none costum-nav costum-rounded">
-        <div class="logo">
-            <a href="#">
-                <h1 style="color: white; padding-left: 20px;">SIMPER <span class="no-bold">DSI</span></h1>
-            </a>
-        </div>
+    <aside class="menu-sidebar2 js-right-sidebar d-block d-lg-none costum-nav">
         <div class="menu-sidebar2__content js-scrollbar2 costum-nav">
             <div class="account2">
                 <div class="image img-cir img-120">
@@ -145,7 +139,7 @@
                                 <a href="<?= base_url('satuan_op') ?>">
                                     <i class="fas fa-filter"></i>Satuan</a>
                             </li>
-                            <li class="<?php if ($title == 'Master Vendor - Operator' || $title == 'Tambah Vendor - Operator' || $title == 'Edit Kategori - Operator') {
+                            <li class="<?php if ($title == 'Master Vendor - Operator' || $title == 'Tambah Vendor - Operator' || $title == 'Edit Vendor - Operator') {
                                     echo 'active';
                                 }?>">
                                 <a href="<?= base_url('vendor_op') ?>">

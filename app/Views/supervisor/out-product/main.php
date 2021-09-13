@@ -226,7 +226,7 @@
         } else {
             window.datestartreport = datestart;
             window.dateendreport = dateend;
-            document.location.href = `/laporanbarangmasuk_spv/${datestart}/${dateend}`;
+            document.location.href = `/laporanbarangkeluar_spv/${datestart}/${dateend}`;
         }
     }
 
@@ -250,6 +250,7 @@
                     $(win.document.body).find('table').find('tbody').find('tr').last().find(
                         'td:not(:nth-last-child(1))').addClass('hide-col').css(
                         'font-weight', 'bolder');
+                    $(win.document.body).find('table').find('tbody').find('tr').last().find('td:nth-last-child(1)').css('font-weight', 'bolder');
                     $(win.document.body).find('table').find('tbody').find('tr').last().find(
                         'td:first').removeClass('hide-col').addClass('hide-col-2').css(
                         'font-weight', 'bolder');

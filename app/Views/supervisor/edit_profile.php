@@ -66,18 +66,19 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-4">
+                                <div class="col-lg-4 col-md-12">
                                     <div class="form-group mb-3">
                                         <label for="USERNAME" class="form-control-label pr-3">Username</label>
                                         <input type="text" class="form-control w-100 costum-rounded" name="USERNAME" id="USERNAME" value="<?= (isset($pengguna['USERNAME'])) ? $pengguna['USERNAME'] : '' ?>">
                                     </div>
                                 </div>
-                                <div class="col-4">
+                                <div class="col-lg-4 col-md-12">
                                     <div class="form-group mb-3">
                                         <label for="PASSWORD" class="form-control-label pr-3">Password Baru</label>
                                         <input type="password" class="form-control w-100 costum-rounded" name="PASSWORD" id="PASSWORD" value="">
                                     </div>
-                                </div> <div class="col-4">
+                                </div> 
+                                <div class="col-lg-4 col-md-12">
                                     <div class="form-group mb-3">
                                         <label for="PASSWORD_CONF" class="form-control-label pr-3">Konfirmasi Password</label>
                                         <input type="password" class="form-control w-100 costum-rounded" name="PASSWORD_CONF" id="PASSWORD_CONF" value="">

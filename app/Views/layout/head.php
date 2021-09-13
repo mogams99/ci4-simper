@@ -8,6 +8,7 @@
 <!-- Title Page-->
 <title><?= $title; ?></title>
 
+<!-- Script Jquery -->
 <script type="text/javascript" src="<?= base_url() ?>/vendor/jquery-3.2.1.min.js"></script>
 
 <!-- Fontfaces CSS-->

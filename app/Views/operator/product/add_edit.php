@@ -21,7 +21,11 @@
                                 <li class="list-inline-item seprate">
                                     <span>/</span>
                                 </li>
-                                <li class="list-inline-item">Tambah</li>
+                                <?php if ($formHeader=="Edit Barang") : ?>
+                                    <li class="list-inline-item">Edit</li>
+                                <?php else : ?>
+                                    <li class="list-inline-item">Tambah</li>
+                                <?php endif; ?>
                             </ul>
                         </div>
                     </div>

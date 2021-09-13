@@ -326,7 +326,7 @@
             "ordering": false,      // Menonaktifkan fungsi sorting atau ordering
             "info": false,          // Menonaktifkan "1 to n of n entries" text pada bagian bawah kiri tabeldata
             "lengthChange": false,  // Menonaktifkan informasi record datatable perhalaman
-            "pageLength": 7,
+            "pageLength": 6,
             scrollX: true,
             "oLanguage": {                          
                 "sEmptyTable": "Data dalam tabel kosong",                               // Merubah informasi bila datatabel tidak ada isinya
@@ -367,7 +367,7 @@
             "ordering": false,      // Menonaktifkan fungsi sorting atau ordering
             "info": false,          // Menonaktifkan "1 to n of n entries" text pada bagian bawah kiri tabeldata
             "lengthChange": false,  // Menonaktifkan informasi record datatable perhalaman
-            "pageLength": 4,
+            "pageLength": 2,
             scrollX: true,
             "oLanguage": {                          
                 "sUrl": "//cdn.datatables.net/plug-ins/1.10.19/i18n/Indonesian.json",   // Merubah bahasa default menjadi bahasa indonesia

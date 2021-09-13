@@ -7,14 +7,21 @@
             <div class="login-wrap">
                 <div class="login-content costum-rounded">
                     <div class="login-logo">
-                        <a href="#">
-                            <h1>SIMPER <span class="no-bold">DSI</span></h1>
+                        <a href="<?= base_url('masuk') ?>">
+                            <h1><span class="no-bold">SIM</span>PER</h1>
                         </a>
                     </div>
                     <div class="login-form">
                     <?php if(session()->getFlashdata('Msg')):?>
                         <div class="alert alert-danger alert-dismissible fade show flash-msg-head" role="alert">
                             <?= session()->getFlashdata('Msg') ?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    <?php elseif(session()->getFlashdata('MsgReg')):?>
+                        <div class="alert alert-success alert-dismissible fade show flash-msg-head" role="alert">
+                            <?= session()->getFlashdata('MsgReg') ?>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
