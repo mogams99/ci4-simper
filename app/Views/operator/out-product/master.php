@@ -47,7 +47,7 @@
                     <?= session()->getFlashdata('status') ?>
                     <!-- DATA TABLE-->
                     <div class="costum-table table-responsive">
-                        <table id="dataTable" class="table table-borderless table-data1 text-center align-center table-color-bg costum-rounded" style="font-size: 10pt;">
+                        <table id="dataTable" class="table table-borderless table-data1 text-center align-center table-color-bg costum-rounded w-100" style="font-size: 10pt;">
                             <thead>
                                 <tr>
                                     <th>Kode Transaksi</th>

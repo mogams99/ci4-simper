@@ -29,7 +29,35 @@
                                 <i class="fas fa-user"></i>Riwayat Aksi</a>
                         </li>
                         <li class="has-sub <?php if(
-                        $title == 'Laporan Sisa Stok - Supervisor' || 
+                        $title == 'Grafik Barang Masuk - Supervisor' || 
+                        $title == 'Grafik Barang Keluar - Supervisor' 
+                        ){echo 'active';} ?>">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-bar-chart-o"></i>Grafik
+                                <span class="arrow">
+                                    <i class="fas fa-angle-down"></i>
+                                </span>
+                            </a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list <?php if(
+                                $title == 'Grafik Barang Masuk - Supervisor' || 
+                                $title == 'Grafik Barang Keluar - Supervisor'
+                                ){echo 'stay-open';} ?> ">
+                                <li class="<?php if ($title == 'Grafik Barang Masuk - Supervisor') {
+                                    echo 'active';
+                                }?>">
+                                    <a href="<?= base_url('grafikbarangmasuk_spv') ?>">
+                                        <i class="fas fa-arrow-circle-right"></i>Barang Masuk</a>
+                                </li>
+                                <li class="<?php if ($title == 'Grafik Barang Keluar - Supervisor') {
+                                    echo 'active';
+                                }?>">
+                                    <a href="<?= base_url('grafikbarangkeluar_spv') ?>">
+                                        <i class="fas fa-arrow-circle-left"></i>Barang Keluar</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="has-sub <?php if(
+                        $title == 'Laporan Stok Barang - Supervisor' || 
                         $title == 'Laporan Barang Masuk - Supervisor' ||
                         $title == 'Laporan Barang Keluar - Supervisor'
                         ){echo 'active';} ?>">
@@ -40,27 +68,27 @@
                                 </span>
                             </a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list <?php if(
-                                $title == 'Laporan Sisa Stok - Supervisor' || 
+                                $title == 'Laporan Stok Barang - Supervisor' || 
                                 $title == 'Laporan Barang Masuk - Supervisor' ||
                                 $title == 'Laporan Barang Keluar - Supervisor'
                                 ){echo 'stay-open';} ?> ">
-                                <li class="<?php if ($title == 'Laporan Sisa Stok - Supervisor') {
+                                <li class="<?php if ($title == 'Laporan Stok Barang - Supervisor') {
                                     echo 'active';
                                 }?>">
                                     <a href="<?= base_url('laporanstockbarang_spv') ?>">
-                                        <i class="fas fa-tasks"></i>Persediaan</a>
+                                        <i class="fas fa-tasks"></i>Stok Barang</a>
                                 </li>
                                 <li class="<?php if ($title == 'Laporan Barang Masuk - Supervisor') {
                                     echo 'active';
                                 }?>">
                                     <a href="<?= base_url('laporanbarangmasuk_spv') ?>">
-                                        <i class="fas fa-arrow-right"></i>Pemasukan</a>
+                                        <i class="fas fa-arrow-right"></i>Barang Masuk</a>
                                 </li>
                                 <li class="<?php if ($title == 'Laporan Barang Keluar - Supervisor') {
                                     echo 'active';
                                 }?>">
                                     <a href="<?= base_url('laporanbarangkeluar_spv') ?>">
-                                        <i class="fas fa-arrow-left"></i>Pengeluaran</a>
+                                        <i class="fas fa-arrow-left"></i>Barang Keluar</a>
                                 </li>
                             </ul>
                         </li>

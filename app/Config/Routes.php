@@ -99,6 +99,9 @@ $routes->post('/update_spv','Supervisor::updateProfile', ['filter' => 'ceklogin_
 
 $routes->add('/riwayataksi_spv', 'Supervisor::logHistory', ['filter' => 'ceklogin_supervisor']);
 
+$routes->add('/grafikbarangmasuk_spv', 'Supervisor::getChartTransaksiMasuk', ['filter' => 'ceklogin_supervisor']);
+$routes->add('/grafikbarangkeluar_spv', 'Supervisor::getChartTransaksiKeluar', ['filter' => 'ceklogin_supervisor']);
+
 $routes->add('/laporanbarangmasuk_spv', 'ReportIn::index', ['filter' => 'ceklogin_supervisor']);
 $routes->add('/laporanbarangmasuk_spv/(:any)/(:any)', 'ReportIn::index/$1/$2', ['filter' => 'ceklogin_supervisor']);
 $routes->get('/gettransaksimasuk/(:any)','ReportIn::getTransaksiMasukByDate/$1');

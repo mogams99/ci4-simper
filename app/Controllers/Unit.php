@@ -9,7 +9,7 @@ class Unit extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Master Satuan - Operator',
+            'title' => 'Satuan - Operator',
             'unit' => $this->SatuanModel->findAll()
         ];
 
@@ -71,12 +71,23 @@ class Unit extends BaseController
 
     public function process_edit()
     {
-        if (!empty($_POST)){
-            $edit = $this->SatuanModel->save($_POST);
-
-            if($edit){
-                return 'editSatuan';
+        $validation =  \Config\Services::validation();
+        $validation->setRules([
+            'SATUAN' => 'required' , 
+            'NOTASI' => 'required'
+        ]);
+        $dataValid = $validation->withRequest($this->request)->run();
+        
+        if ($dataValid){
+            if (!empty($_POST)){
+                $edit = $this->SatuanModel->save($_POST);
+    
+                if($edit){
+                    return 'editSatuan';
+                }
             }
+        } else {
+            return 'alertaSatuan';
         }
     }
 

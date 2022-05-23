@@ -9,7 +9,7 @@ class Vendor extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Master Vendor - Operator',
+            'title' => 'Vendor - Operator',
             'vendor' => $this->VendorModel->findAll()
         ];
 
@@ -70,12 +70,22 @@ class Vendor extends BaseController
 
     public function process_edit()
     {
-        if (!empty($_POST)){
-            $edit = $this->VendorModel->save($_POST);
-
-            if($edit){
-                return 'editVendor';
+        $validation =  \Config\Services::validation();
+        $validation->setRules([
+            'NAMA_VENDOR' => 'required' 
+        ]);
+        $dataValid = $validation->withRequest($this->request)->run();
+        
+        if($dataValid){
+            if (!empty($_POST)){
+                $edit = $this->VendorModel->save($_POST);
+    
+                if($edit){
+                    return 'editVendor';
+                }
             }
+        } else {
+            return 'alertaVendor';
         }
     }
 

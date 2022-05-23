@@ -9,7 +9,7 @@ class Location extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Master Lokasi - Operator',
+            'title' => 'Lokasi - Operator',
             'location' => $this->LokasiModel->findAll()
         ];
 
@@ -71,12 +71,23 @@ class Location extends BaseController
     
     public function process_edit()
     {
-        if (!empty($_POST)){
-            $edit = $this->LokasiModel->save($_POST);
+        $validation =  \Config\Services::validation();
+        $validation->setRules([
+            'BLOK' => 'required' , 
+            'KETERANGAN_LOKASI' => 'required'
+        ]);
+        $dataValid = $validation->withRequest($this->request)->run();
 
-            if($edit){
-                return 'editLokasi';
+        if ($dataValid){
+            if (!empty($_POST)){
+                $edit = $this->LokasiModel->save($_POST);
+    
+                if($edit){
+                    return 'editLokasi';
+                }
             }
+        } else {
+            return 'alertaLokasi';
         }
     }
 }

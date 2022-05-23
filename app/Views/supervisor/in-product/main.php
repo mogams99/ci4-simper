@@ -15,7 +15,7 @@
                                 <li class="list-inline-item seprate">
                                     <span>/</span>
                                 </li>
-                                <li class="list-inline-item">Laporan Pemasukan</li>
+                                <li class="list-inline-item">Laporan Barang Masuk</li>
                             </ul>
                         </div>
                     </div>
@@ -41,8 +41,7 @@
                                         <div class="col-lg-12 col-md-12">
                                             <div class="form-group mb-3">
                                                 <label for="" class="form-control-label pr-3">Tanggal Saat Ini</label>
-                                                <input type="text" class="form-control w-100 costum-rounded"
-                                                    id="DATE_IN" name="DATE_IN" value="<?= $tanggal; ?>" readonly>
+                                                <input type="text" class="form-control w-100 costum-rounded" id="DATE_IN" name="DATE_IN" value="<?= $tanggal; ?>" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -50,8 +49,7 @@
                             </form>
                         </div>
                         <div class="card-footer">
-                            <button type="submit" onclick="getDetailTransaksi()" href="/"
-                                class="btn btn-success btn-md costum-rounded">
+                            <button type="submit" onclick="getDetailTransaksi()" href="/" class="btn btn-success btn-md costum-rounded">
                                 Tampil
                             </button>
                         </div>
@@ -69,17 +67,13 @@
                                         <div class="col-lg-6 col-md-6">
                                             <div class="form-group mb-3">
                                                 <label for="" class="form-control-label pr-3">Pilih Tanggal</label>
-                                                <input type="date" class="form-control w-100 costum-rounded date-format"
-                                                    id="DATE_START" name="DATE_START"
-                                                    value="<?= (isset($datestart)) ? $datestart : '' ; ?>">
+                                                <input type="date" class="form-control w-100 costum-rounded date-format" id="DATE_START" name="DATE_START" value="<?= (isset($datestart)) ? $datestart : ''; ?>">
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6">
                                             <div class="form-group mb-3">
                                                 <label for="" class="form-control-label pr-3">Sampai Tanggal</label>
-                                                <input type="date" class="form-control w-100 costum-rounded date-format"
-                                                    id="DATE_END" name="DATE_END"
-                                                    value="<?= (isset($dateend)) ? $dateend : '' ; ?>">
+                                                <input type="date" class="form-control w-100 costum-rounded date-format" id="DATE_END" name="DATE_END" value="<?= (isset($dateend)) ? $dateend : ''; ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -87,8 +81,7 @@
                             </form>
                         </div>
                         <div class="card-footer">
-                            <button type="button" onclick="getTransaksiByPeriod()"
-                                class="btn btn-success btn-md costum-rounded">
+                            <button type="button" onclick="getTransaksiByPeriod()" class="btn btn-success btn-md costum-rounded">
                                 Tampil
                             </button>
                         </div>
@@ -99,9 +92,7 @@
                 <div class="col-md-12 col-lg-12">
                     <!-- DATA TABLE-->
                     <div class="report table-responsive">
-                        <table id="dataTableInProduct"
-                            class="table table-borderless table-color-bg text-center costum-rounded w-100"
-                            style="font-size: 10pt;">
+                        <table id="dataTableInProduct" class="table table-borderless table-color-bg text-center costum-rounded w-100" style="font-size: 10pt;">
                             <thead>
                                 <th style="min-width: 120px;">Kode Transaksi</th>
                                 <th style="min-width: 120px;">Tanggal Masuk</th>
@@ -114,21 +105,21 @@
                                 <th style="min-width: 100px;">Harga Total</th>
                             </thead>
                             <tbody id="tbody">
-                                <?php $subtotal = 0;?>
+                                <?php $subtotal = 0; ?>
                                 <?php foreach ($data as $databarangmasuk) : ?>
-                                <tr>
-                                    <td><?= $databarangmasuk['ID_TRANSAKSI']; ?></td>
-                                    <td><?= date('d-m-Y', strtotime($databarangmasuk['DATE_IN'])); ?></td>
-                                    <td><?= $databarangmasuk['NAMA_BARANG']; ?></td>
-                                    <td><?= $databarangmasuk['NAMA_VENDOR']; ?></td>
-                                    <td><?= $databarangmasuk['BLOK']; ?></td>
-                                    <td><?= $databarangmasuk['JUMLAH_BARANG']; ?></td>
-                                    <td><?= $databarangmasuk['MINIMAL_BARANG']; ?></td>
-                                    <td><?= $databarangmasuk['NOTASI']; ?></td>
-                                    <td><?= format_rupiah($databarangmasuk['TOTAL_HARGA']); ?></td>
-                                    <?php $subtotal += (int)$databarangmasuk['TOTAL_HARGA']; ?>
-                                </tr>
-                                <?php endforeach;?>
+                                    <tr>
+                                        <td><?= $databarangmasuk['ID_TRANSAKSI']; ?></td>
+                                        <td><?= date('d-m-Y', strtotime($databarangmasuk['DATE_IN'])); ?></td>
+                                        <td><?= $databarangmasuk['NAMA_BARANG']; ?></td>
+                                        <td><?= $databarangmasuk['NAMA_VENDOR']; ?></td>
+                                        <td><?= $databarangmasuk['BLOK']; ?></td>
+                                        <td><?= $databarangmasuk['JUMLAH_BARANG']; ?></td>
+                                        <td><?= $databarangmasuk['MINIMAL_BARANG']; ?></td>
+                                        <td><?= $databarangmasuk['NOTASI']; ?></td>
+                                        <td><?= format_rupiah($databarangmasuk['TOTAL_HARGA']); ?></td>
+                                        <?php $subtotal += (int)$databarangmasuk['TOTAL_HARGA']; ?>
+                                    </tr>
+                                <?php endforeach; ?>
                                 <tr>
                                     <td class="hide-col"><strong>Subtotal</strong></td>
                                     <td class="hide-col"></td>
@@ -149,9 +140,7 @@
                 <div class="col-md-12 col-lg-12">
                     <!-- DATA TABLE-->
                     <div class="report table-responsive">
-                        <table id="dataTableReportView"
-                            class="table table-borderless table-color-bg text-center costum-rounded w-100"
-                            style="font-size: 10pt;">
+                        <table id="dataTableReportView" class="table table-borderless table-color-bg text-center costum-rounded w-100" style="font-size: 10pt;">
                             <thead>
                                 <th style="min-width: 120px;">Kode Transaksi</th>
                                 <th style="min-width: 120px;">Tanggal Masuk</th>
@@ -164,21 +153,21 @@
                                 <th style="min-width: 100px;">Harga Total</th>
                             </thead>
                             <tbody id="tbody">
-                                <?php $subtotal = 0;?>
+                                <?php $subtotal = 0; ?>
                                 <?php foreach ($data as $databarangmasuk) : ?>
-                                <tr>
-                                    <td><?= $databarangmasuk['ID_TRANSAKSI']; ?></td>
-                                    <td><?= $databarangmasuk['DATE_IN']; ?></td>
-                                    <td><?= $databarangmasuk['NAMA_BARANG']; ?></td>
-                                    <td><?= $databarangmasuk['NAMA_VENDOR']; ?></td>
-                                    <td><?= $databarangmasuk['BLOK']; ?></td>
-                                    <td><?= $databarangmasuk['JUMLAH_BARANG']; ?></td>
-                                    <td><?= $databarangmasuk['MINIMAL_BARANG']; ?></td>
-                                    <td><?= $databarangmasuk['NOTASI']; ?></td>
-                                    <td><?= format_rupiah($databarangmasuk['TOTAL_HARGA']); ?></td>
-                                    <?php $subtotal += (int)$databarangmasuk['TOTAL_HARGA']; ?>
-                                </tr>
-                                <?php endforeach;?>
+                                    <tr>
+                                        <td><?= $databarangmasuk['ID_TRANSAKSI']; ?></td>
+                                        <td><?= $databarangmasuk['DATE_IN']; ?></td>
+                                        <td><?= $databarangmasuk['NAMA_BARANG']; ?></td>
+                                        <td><?= $databarangmasuk['NAMA_VENDOR']; ?></td>
+                                        <td><?= $databarangmasuk['BLOK']; ?></td>
+                                        <td><?= $databarangmasuk['JUMLAH_BARANG']; ?></td>
+                                        <td><?= $databarangmasuk['MINIMAL_BARANG']; ?></td>
+                                        <td><?= $databarangmasuk['NOTASI']; ?></td>
+                                        <td><?= format_rupiah($databarangmasuk['TOTAL_HARGA']); ?></td>
+                                        <?php $subtotal += (int)$databarangmasuk['TOTAL_HARGA']; ?>
+                                    </tr>
+                                <?php endforeach; ?>
                                 <tr>
                                     <td class="hide-col"><strong>Subtotal</strong></td>
                                     <td class="hide-col"></td>
@@ -222,14 +211,14 @@
         }
     }
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         var table4 = $('#dataTableInProduct').DataTable({
             dom: 'Bfrtip',
             buttons: [{
                 extend: 'print',
                 text: 'Cetak',
                 title: '',
-                customize: function (win) {
+                customize: function(win) {
                     $(win.document.body).css('font-size', '8pt');
 
                     $(win.document.body).find('table')
@@ -252,11 +241,11 @@
                     ); //after the table
                     <?php if ($date_harian == null) : ?>
                         $(win.document.body).prepend(
-                            '<div class="row m-t-15 m-b-30"><div class="col" align="center"><h4 style="color: #666;">Laporan Pemasukan Departemen Logistik Periode Tanggal <?= date('d - m - Y ', strtotime($date_start)) ?> s/d <?= date('d - m - Y ', strtotime($date_end)) ?></h4></div></div>'
+                            '<div class="row m-t-15 m-b-30"><div class="col" align="center"><h4 style="color: #666;">Laporan Barang Masuk Departemen Logistik Periode Tanggal <?= date('d - m - Y ', strtotime($date_start)) ?> s/d <?= date('d - m - Y ', strtotime($date_end)) ?></h4></div></div>'
                         ); //before the table
                     <?php else : ?>
                         $(win.document.body).prepend(
-                            '<div class="row m-t-15 m-b-30"><div class="col" align="center"><h4 style="color: #666;">Laporan Pemasukan Departemen Logistik Harian Tanggal <?= date('d - m - Y ', strtotime($date_harian)); ?></h4></div></div>'
+                            '<div class="row m-t-15 m-b-30"><div class="col" align="center"><h4 style="color: #666;">Laporan Barang Masuk Departemen Logistik Harian Tanggal <?= date('d - m - Y ', strtotime($date_harian)); ?></h4></div></div>'
                         ); //before the table
                     <?php endif; ?>
                 }

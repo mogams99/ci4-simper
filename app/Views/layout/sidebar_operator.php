@@ -55,19 +55,19 @@
                             </ul>
                         </li>
                         <li class="has-sub <?php if(
-                            $title == 'Master Barang - Operator' || 
+                            $title == 'Barang - Operator' || 
                             $title == 'Tambah Barang - Operator' || 
                             $title == 'Edit Barang - Operator' || 
-                            $title == 'Master Kategori - Operator' ||
+                            $title == 'Kategori - Operator' ||
                             $title == 'Tambah Kategori - Operator' ||
                             $title == 'Edit Kategori - Operator' ||
-                            $title == 'Master Lokasi - Operator' ||
+                            $title == 'Lokasi - Operator' ||
                             $title == 'Tambah Lokasi - Operator' ||
                             $title == 'Edit Lokasi - Operator' || 
-                            $title == 'Master Satuan - Operator' ||
+                            $title == 'Satuan - Operator' ||
                             $title == 'Tambah Satuan - Operator' ||
                             $title == 'Edit Satuan - Operator' ||
-                            $title == 'Master Vendor - Operator' ||
+                            $title == 'Vendor - Operator' ||
                             $title == 'Tambah Vendor - Operator' ||
                             $title == 'Edit Vendor - Operator'
                             ){echo 'active';} ?>">
@@ -78,47 +78,47 @@
                                 </span>
                             </a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list <?php if(
-                                $title == 'Master Barang - Operator' || 
+                                $title == 'Barang - Operator' || 
                                 $title == 'Tambah Barang - Operator' || 
                                 $title == 'Edit Barang - Operator' ||
-                                $title == 'Master Kategori - Operator' ||
+                                $title == 'Kategori - Operator' ||
                                 $title == 'Tambah Kategori - Operator' ||
                                 $title == 'Edit Kategori - Operator' ||
-                                $title == 'Master Lokasi - Operator' ||
+                                $title == 'Lokasi - Operator' ||
                                 $title == 'Tambah Lokasi - Operator' ||
                                 $title == 'Edit Lokasi - Operator' || 
-                                $title == 'Master Satuan - Operator' ||
+                                $title == 'Satuan - Operator' ||
                                 $title == 'Tambah Satuan - Operator' ||
                                 $title == 'Edit Satuan - Operator' ||
-                                $title == 'Master Vendor - Operator' ||
+                                $title == 'Vendor - Operator' ||
                                 $title == 'Tambah Vendor - Operator' ||
                                 $title == 'Edit Vendor - Operator'
                                 ){echo 'stay-open';} ?> ">
-                                <li  class="<?php if ($title == 'Master Barang - Operator' || $title == 'Tambah Barang - Operator' || $title == 'Edit Barang - Operator') {
+                                <li  class="<?php if ($title == 'Barang - Operator' || $title == 'Tambah Barang - Operator' || $title == 'Edit Barang - Operator') {
                                     echo 'active';
                                 }?>">
                                     <a href="<?= base_url('brgmaster_op') ?>">
                                         <i class="fas fa-tasks"></i>Barang</a>
                                 </li>
-                                <li class="<?php if ($title == 'Master Kategori - Operator' || $title == 'Tambah Kategori - Operator' || $title == 'Edit Kategori - Operator') {
+                                <li class="<?php if ($title == 'Kategori - Operator' || $title == 'Tambah Kategori - Operator' || $title == 'Edit Kategori - Operator') {
                                     echo 'active';
                                 }?>">
                                     <a href="<?= base_url('kategori_op') ?>">
                                         <i class="fas fa-certificate"></i>Kategori</a>
                                 </li>
-                                <li class="<?php if ($title == 'Master Lokasi - Operator' || $title == 'Tambah Lokasi - Operator' || $title == 'Edit Lokasi - Operator') {
+                                <li class="<?php if ($title == 'Lokasi - Operator' || $title == 'Tambah Lokasi - Operator' || $title == 'Edit Lokasi - Operator') {
                                     echo 'active';
                                 }?>">
                                     <a href="<?= base_url('lokasi_op') ?>">
                                         <i class="fas fa-map-marker"></i>Lokasi</a>
                                 </li>
-                                <li class="<?php if ($title == 'Master Satuan - Operator' || $title == 'Tambah Satuan - Operator' || $title == 'Edit Satuan - Operator') {
+                                <li class="<?php if ($title == 'Satuan - Operator' || $title == 'Tambah Satuan - Operator' || $title == 'Edit Satuan - Operator') {
                                     echo 'active';
                                 }?>">
                                     <a href="<?= base_url('satuan_op') ?>">
                                         <i class="fas fa-filter"></i>Satuan</a>
                                 </li>
-                                <li class="<?php if ($title == 'Master Vendor - Operator' || $title == 'Tambah Vendor - Operator' || $title == 'Edit Vendor - Operator') {
+                                <li class="<?php if ($title == 'Vendor - Operator' || $title == 'Tambah Vendor - Operator' || $title == 'Edit Vendor - Operator') {
                                     echo 'active';
                                 }?>">
                                     <a href="<?= base_url('vendor_op') ?>">

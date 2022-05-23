@@ -184,4 +184,39 @@ class Transac_model extends Model
             ->groupBy('transaksi.ID_TRANSAKSI')
             ->get()->getResultArray();
     }
+
+    public function getChartTransaksiMasuk($tahun)
+    {
+        $condition = ['DATE_OUT' => null, 'DELETED_T' => null,'YEAR(DATE_IN)' => $tahun];
+        return $this->db->table($this->table)
+            ->select('MONTH(DATE_IN) id_bulan')
+            ->select('MONTHNAME(DATE_IN) nama_bulan')
+            ->select('YEAR(DATE_IN) tahun')
+            ->select('SUM(TOTAL_HARGA) harga_total')
+            ->where($condition)
+            ->groupBy('MONTH(DATE_IN)')
+            ->get()->getResultArray();
+    }
+    public function getTahun()
+    {
+        $condition = ['DATE_OUT' => null, 'DELETED_T' => null];
+        return $this->db->table($this->table)
+            ->select('YEAR(DATE_IN) tahun')
+            ->where($condition)
+            ->groupBy('YEAR(DATE_IN)')
+            ->get()->getResultArray();
+    }
+
+    public function getChartTransaksiKeluar($tahun)
+    {
+        $condition = ['DATE_IN' => null, 'DELETED_T' => null, 'YEAR(DATE_OUT)' => $tahun];
+        return $this->db->table($this->table)
+            ->select('MONTH(DATE_OUT) id_bulan')
+            ->select('MONTHNAME(DATE_OUT) nama_bulan')
+            ->select('YEAR(DATE_OUT) tahun')
+            ->select('SUM(TOTAL_HARGA) harga_total')
+            ->where($condition)
+            ->groupBy('MONTH(DATE_OUT)')
+            ->get()->getResultArray();
+    }
 }

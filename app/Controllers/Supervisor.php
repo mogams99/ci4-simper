@@ -28,6 +28,71 @@ class Supervisor extends BaseController
         return view('supervisor/history', $data);
     }
 
+    public function getChartTransaksiMasuk()
+    {
+        if(!empty($this->request->getVar('TAHUN'))){
+            $tahun = $this->request->getVar('TAHUN');
+            $data = [
+                'title' => 'Grafik Barang Masuk - Supervisor',
+                'formHeader' => 'Tahun',
+                'tahun' => $tahun,
+                'params' => $this->TransaksiModel->getTahun(),
+            ];
+            $result1 = $this->TransaksiModel->getChartTransaksiMasuk($tahun);
+        }else{
+            $tahun = date('Y');
+            $data = [
+                'title' => 'Grafik Barang Masuk - Supervisor',
+                'formHeader' => 'Tahun',
+                'tahun' => $tahun,
+                'params' => $this->TransaksiModel->getTahun(),
+            ];
+            $result1 = $this->TransaksiModel->getChartTransaksiMasuk($tahun);
+        };
+
+        foreach($result1 as $chart) {
+            $data['label'][] = $chart['nama_bulan'];
+            $data['data'][] = (int) $chart['harga_total'];
+        }
+
+        $data['chart_in'] = json_encode($data);
+
+        return view('supervisor/chart-bar/in-product', $data);
+    }
+
+    public function getChartTransaksiKeluar()
+    {
+        $check = !empty($this->request->getVar('TAHUN'));
+        if($check == true){
+            $tahun = $this->request->getVar('TAHUN');
+            $data = [
+                'title' => 'Grafik Barang Keluar - Supervisor',
+                'formHeader' => 'Tahun',
+                'tahun' => $tahun,
+                'params' => $this->TransaksiModel->getTahun(),
+            ];
+            $result2 = $this->TransaksiModel->getChartTransaksiKeluar($tahun);
+        }else{
+            $tahun = date('Y');
+            $data = [
+                'title' => 'Grafik Barang Keluar - Supervisor',
+                'formHeader' => 'Tahun',
+                'tahun' => $tahun,
+                'params' => $this->TransaksiModel->getTahun(),
+            ];
+            $result2 = $this->TransaksiModel->getChartTransaksiKeluar($tahun);
+        };
+
+        foreach($result2 as $chart) {
+            $data['label'][] = $chart['nama_bulan'];
+            $data['data'][] = (int) $chart['harga_total'];
+        }
+
+        $data['chart_out'] = json_encode($data);
+
+        return view('supervisor/chart-bar/out-product', $data);
+    }
+
     public function editProfile()
     {
         $grab_session = $_SESSION["ID_USER"];

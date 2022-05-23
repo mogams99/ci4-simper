@@ -28,24 +28,24 @@ class ProductOut extends BaseController
                 'action' => site_url('inputbrgkeluar'),
                 'transac' => $transac,
                 'product' => $this->ProdukModel->findAll(),
-                'category' => $this->KategoriModel->findAll(),
-                'unit' => $this->SatuanModel->findAll(),
-                'location' => $this->LokasiModel->findAll(),
-                'vendor' => $this->VendorModel->findAll(),
+                // 'category' => $this->KategoriModel->findAll(),
+                // 'unit' => $this->SatuanModel->findAll(),
+                // 'location' => $this->LokasiModel->findAll(),
+                // 'vendor' => $this->VendorModel->findAll(),
                 'formHeader' => 'Tambah Barang Keluar',
                 'tanggal_keluar' => $date_out,
                 'user_aktif' => $id_pengguna
             ];
         }else{
             $data = [
-                'title' => 'Edit Barang Masuk - Operator',
+                'title' => 'Edit Barang Keluar - Operator',
                 'action' => base_url('updatebrgkeluar'),
                 'transac' => $this->TransaksiModel->getDetailTransaksi("keluar", $id),
-                'product' => $this->ProdukModel->findAll(),
-                'category' => $this->KategoriModel->findAll(),
-                'unit' => $this->SatuanModel->findAll(),
-                'vendor' => $this->VendorModel->findAll(),
-                'location' => $this->LokasiModel->findAll(),
+                // 'product' => $this->ProdukModel->findAll(),
+                // 'category' => $this->KategoriModel->findAll(),
+                // 'unit' => $this->SatuanModel->findAll(),
+                // 'vendor' => $this->VendorModel->findAll(),
+                // 'location' => $this->LokasiModel->findAll(),
                 'formHeader' => 'Edit Barang Keluar',
                 'user_aktif' => $id_pengguna
             ];
@@ -94,7 +94,7 @@ class ProductOut extends BaseController
                $this->logModel->insert($logdata);
            }
        }
-           return 'tambahBarangKeluar';
+        return 'tambahBarangKeluar';
     }
 
     public function updateBarangKeluar(){

@@ -15,7 +15,7 @@
                                 <li class="list-inline-item seprate">
                                     <span>/</span>
                                 </li>
-                                <li class="list-inline-item">Laporan Pengeluaran</li>
+                                <li class="list-inline-item">Laporan Barang Keluar</li>
                             </ul>
                         </div>
                     </div>
@@ -260,11 +260,11 @@
                     ); //after the table
                     <?php if ($date_harian == null): ?>
                         $(win.document.body).prepend(
-                            '<div class="row m-t-15 m-b-30"><div class="col" align="center"><h4 style="color: #666;">Laporan Pengeluaran Departemen Logistik Periode Tanggal <?= date('d - m - Y ', strtotime($date_start)) ?> s/d <?= date('d - m - Y ', strtotime($date_end)) ?></h4></div></div>'
+                            '<div class="row m-t-15 m-b-30"><div class="col" align="center"><h4 style="color: #666;">Laporan Barang Keluar Departemen Logistik Periode Tanggal <?= date('d - m - Y ', strtotime($date_start)) ?> s/d <?= date('d - m - Y ', strtotime($date_end)) ?></h4></div></div>'
                         ); //before the table
                     <?php else : ?>
                         $(win.document.body).prepend(
-                            '<div class="row m-t-15 m-b-30"><div class="col" align="center"><h4 style="color: #666;">Laporan Pengeluaran Departemen Logistik Harian Tanggal <?= date('d - m - Y ', strtotime($date_harian)); ?></h4></div></div>'
+                            '<div class="row m-t-15 m-b-30"><div class="col" align="center"><h4 style="color: #666;">Laporan Barang Keluar Departemen Logistik Harian Tanggal <?= date('d - m - Y ', strtotime($date_harian)); ?></h4></div></div>'
                         ); //before the table
                     <?php endif; ?>
                 }

@@ -10,7 +10,7 @@ class Product extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Master Barang - Operator',
+            'title' => 'Barang - Operator',
             'product' => $this->ProdukModel->getProduk()
         ];
 
@@ -32,7 +32,7 @@ class Product extends BaseController
             $data = [
                 'title' => 'Edit Barang - Operator',
                 'product' => $this->ProdukModel->getProdukDetail($id)[0],
-                'category' => $this->KategoriModel->findAll(),
+                // 'category' => $this->KategoriModel->findAll(),
                 'unit' => $this->SatuanModel->findAll(),
                 'location' => $this->LokasiModel->findAll(),
                 'action' => base_url('product/process_edit'),
@@ -43,19 +43,19 @@ class Product extends BaseController
         return view('operator/product/add_edit', $data);
     }
 
-    public function delete($id = NULL)
-    {
-        if($id == NULL){
-            return redirect()->to('/brgmaster_op');
-        }else{
-            try {
-                $delete = $this->ProdukModel->delete($id);
-            } catch (\mysqli_sql_exception $e){
-                return redirect()->to('/brgmaster_op');
-            }
-            return redirect()->to('/brgmaster_op');
-        }
-    }
+    // public function delete($id = NULL)
+    // {
+    //     if($id == NULL){
+    //         return redirect()->to('/brgmaster_op');
+    //     }else{
+    //         try {
+    //             $delete = $this->ProdukModel->delete($id);
+    //         } catch (\mysqli_sql_exception $e){
+    //             return redirect()->to('/brgmaster_op');
+    //         }
+    //         return redirect()->to('/brgmaster_op');
+    //     }
+    // }
 
     public function process_add()
     {

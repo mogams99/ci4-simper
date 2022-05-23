@@ -9,7 +9,7 @@ class Category extends BaseController
     public function index()
     {
         $data = [
-            'title' => 'Master Kategori - Operator',
+            'title' => 'Kategori - Operator',
             'category' => $this->KategoriModel->findAll()
         ];
 
@@ -36,16 +36,16 @@ class Category extends BaseController
         return view('operator/category/add_edit', $data);
     }
 
-    public function delete($id = NULL)
-    {
-        if($id == NULL){
-            return redirect()->to('/kategori_op');
-        }else{
-            $delete = $this->KategoriModel->delete($id);
+    // public function delete($id = NULL)
+    // {
+    //     if($id == NULL){
+    //         return redirect()->to('/kategori_op');
+    //     }else{
+    //         $delete = $this->KategoriModel->delete($id);
 
-            return redirect()->to('/kategori_op');
-        }
-    }
+    //         return redirect()->to('/kategori_op');
+    //     }
+    // }
 
     public function process_add()
     {
@@ -71,12 +71,23 @@ class Category extends BaseController
     
     public function process_edit()
     {
-        if (!empty($_POST)){
-            $edit = $this->KategoriModel->save($_POST);
-
-            if($edit){
-                return 'editKategori';
+        $validation =  \Config\Services::validation();
+        $validation->setRules([
+            'NAMA_KATEGORI' => 'required' , 
+            'PREFIX_KATEGORI' => 'required'
+        ]);
+        $dataValid = $validation->withRequest($this->request)->run();
+        
+        if ($dataValid){
+            if (!empty($_POST)){
+                $edit = $this->KategoriModel->save($_POST);
+    
+                if($edit){
+                    return 'editKategori';
+                }
             }
+        } else {
+            return 'alertaKategori';
         }
     }
     

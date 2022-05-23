@@ -15,7 +15,7 @@
                                 <li class="list-inline-item seprate">
                                     <span>/</span>
                                 </li>
-                                <li class="list-inline-item">Laporan Persediaan</li>
+                                <li class="list-inline-item">Laporan Stok Barang</li>
                             </ul>
                         </div>
                     </div>
@@ -229,7 +229,7 @@
                         $(win.document.body).find('table').find('tbody').find('tr').last().find('td:first').removeClass('hide-col').addClass('hide-col-2').css('font-weight', 'bolder');
                         
                         $(win.document.body).append('<div class="row m-t-30 m-b-50"><div class="col" align="center"><h6 style="color: #666;">Ridwan Irlanto</h6></div></div><div class="row"><div class="col" align="center"><div><strong><h6 style="color: #666;">(Supervisor Logistik)</h6></strong></div></div></div>'); //after the table
-                        $(win.document.body).prepend('<div class="row m-t-15 m-b-30"><div class="col" align="center"><h4 style="color: #666;">Laporan Persedian Departemen Logistik Tanggal <?= date("d-m-Y") ?></h4></div></div>'); //before the table
+                        $(win.document.body).prepend('<div class="row m-t-15 m-b-30"><div class="col" align="center"><h4 style="color: #666;">Laporan Stok Barang Departemen Logistik Tanggal <?= date("d-m-Y") ?></h4></div></div>'); //before the table
                     }
                 },
             ],

@@ -19,7 +19,7 @@ class ReportStock extends BaseController
             $selectednamabarang = $selecteddatabarang[0]['NAMA_BARANG'];
         }
         $data = [
-            'title' => 'Laporan Sisa Stok - Supervisor',
+            'title' => 'Laporan Stok Barang - Supervisor',
             'product' => $databarang,
             'selected_barang' => $idbarang,
             'selected_data_barang' => $selecteddatabarang,
